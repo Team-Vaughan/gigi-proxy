@@ -57,8 +57,8 @@ app.get('/availability', async (req, res) => {
 
 app.get('/users', async (req, res) => {
   try {
-    const response = await axios.get('http://localhost:5007/users.js');
-    // const response = await axios.get('https://sdc-user-profile.s3-us-west-1.amazonaws.com/users.js');
+    // const response = await axios.get('http://localhost:5007/users.js');
+    const response = await axios.get('http://18.190.164.90:5007/users.js');
     res.send(response.data);
   } catch (err) {
     console.error(err);
