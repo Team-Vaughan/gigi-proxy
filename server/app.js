@@ -30,7 +30,7 @@ app.get('/title', async (req, res) => {
 
 app.get('/photos', async (req, res) => {
   try {
-    const response = await axios.get('https://react-bundles.s3.us-east-2.amazonaws.com/photos-service.js');
+    const response = await axios.get('https://sdc-photo-service-bundle.s3.us-east-2.amazonaws.com/photos-service.js');
     res.send(response.data);
   } catch (err) {
     console.error(err);
@@ -39,7 +39,7 @@ app.get('/photos', async (req, res) => {
 
 app.get('/summary', async (req, res) => {
   try {
-    const response = await axios.get('https://summarybundle-mockairbnb.s3-us-west-2.amazonaws.com/summary.js');
+    const response = await axios.get('https://sdc-summary-service.s3.us-east-2.amazonaws.com/summary/summary.js');
     res.send(response.data);
   } catch (err) {
     console.error(err);
@@ -57,7 +57,6 @@ app.get('/availability', async (req, res) => {
 
 app.get('/users', async (req, res) => {
   try {
-    // const response = await axios.get('http://localhost:5007/users.js');
     const response = await axios.get('https://sdc-user-profile.s3-us-west-1.amazonaws.com/users.js');
     res.send(response.data);
   } catch (err) {
@@ -105,7 +104,7 @@ app.get('/rooms/:id/minNightlyRate', async (req, res) => {
 
 app.get('/rooms/:id/summary', async (req, res) => {
   try {
-    const response = await axios.get(`http://ec2-54-149-117-186.us-west-2.compute.amazonaws.com:5002/rooms/${req.params.id}/summary`);
+    const response = await axios.get(`http://18.221.188.4:5002/rooms/${req.params.id}/summary`);
     res.send(response.data);
   } catch (err) {
     res.send(fallback.summary);
@@ -123,7 +122,7 @@ app.get('/rooms/:id/title', async (req, res) => {
 
 app.get('/rooms/:id/getPhotosByRoomID', async (req, res) => {
   try {
-    const response = await axios.get(`http://ec2-18-191-199-80.us-east-2.compute.amazonaws.com:5005/rooms/${req.params.id}/getPhotosByRoomID`);
+    const response = await axios.get(`http://3.21.180.150:5005/rooms/${req.params.id}/getPhotosByRoomID`);
     res.send(response.data);
   } catch (err) {
     res.send(fallback.photos);
